@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../context/UserState'
+import { Link, useHistory } from 'react-router-dom'
 import { Nav } from '../styles/NavbarElements'
 import logo from '../assets/logo.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineClose } from 'react-icons/ai'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
 const Navbar = () => {
-
+    const history = useHistory()
+    const { state, dispatch } = useContext(UserContext)
     const [modalOpen, setModalOpen] = useState(false);
+    const [isActive, setIsActive] = useState(false)
     const [navbar, setNavbar] = useState(false);
+
+    const toggleMenu = () => setIsActive(!isActive)
     const showModal = () => setModalOpen(!modalOpen);
+
     const changeBackground = () => {
         if (window.pageYOffset >= 60) {
             setNavbar(true);
@@ -27,17 +35,75 @@ const Navbar = () => {
         };
     }, []);
 
+
+
     return (
         <Nav>
-            <img className="logo-image" src={logo} alt="logo"></img>
+            <Link to="/">
+                <img className="logo-image" src={logo} alt="logo"></img>
+            </Link>
+
             <nav className="nav-container">
                 <ul className="list-container">
-                    <li><Link>Home</Link></li>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link>About</Link></li>
                     <li><Link>Explore</Link></li>
                     <li><Link>Followings</Link></li>
                 </ul>
-                <Link className="link-btn">Sign in/up</Link>
+                {state ?
+                    <>
+                        <div className="toggleButton">
+                            <div
+                                onClick={() => toggleMenu()}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <img
+                                    className="user-image"
+                                    src={state ? state.profile_pic : "loading"} alt="user avatar"
+                                />
+                            </div>
+                            <div
+                                className={`dropdown ${isActive ? "active" : "inactive"}`}
+                            >
+                                <ul className="dropdown-list">
+                                    <li><Link
+                                        to="/profile"
+                                        className="list-btn"
+                                        onClick={() => toggleMenu()}
+
+                                    >
+                                        <AccountCircleIcon
+                                            style={{ marginRight: "1rem" }}
+                                        />
+                                        Profile
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/signin"
+                                            className="list-btn"
+                                            onClick={() => {
+                                                localStorage.clear()
+                                                dispatch({ type: "CLEAR" })
+                                                history.push('/signin')
+                                                toggleMenu()
+                                            }}
+                                        >
+                                            <MeetingRoomIcon
+                                                onClick={() => toggleMenu()}
+                                                style={{ marginRight: "1rem" }} />
+                                            Logout
+                                            </Link>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </>
+
+                    :
+                    <Link to="/signin" className="link-btn">Sign in/up</Link>
+                }
             </nav>
             <GiHamburgerMenu
                 className="hamburger-menu"
@@ -47,12 +113,44 @@ const Navbar = () => {
             <div className={modalOpen ? "modal active" : "modal"} >
                 <AiOutlineClose className="close__btn" onClick={() => showModal()} />
                 <ul className="newList-container">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">About</Link></li>
-                    <li><Link to="/">Explore</Link></li>
-                    <li><Link to="/">Followings</Link></li>
+                    {state &&
+                        <img
+                            className="user-image"
+                            src={state ? state.profile_pic : "loading"} alt="user avatar"
+                        />
+                    }
+
+                    <li><Link to="/" onClick={() => showModal()}>Home</Link></li>
+                    <li><Link to="/" onClick={() => showModal()}>About</Link></li>
+                    <li><Link to="/" onClick={() => showModal()}>Explore</Link></li>
+                    <li><Link to="/" onClick={() => showModal()}>Followings</Link></li>
+                    {state &&
+                        <li><Link to="/profile" onClick={() => showModal()}>Profile</Link></li>
+                    }
                 </ul>
-                <Link className="link-btn">Sign in/up</Link>
+
+                {state ?
+                    <>
+                        <Link
+                            className="link-btn"
+                            to="/signin"
+                            onClick={() => {
+                                localStorage.clear()
+                                dispatch({ type: "CLEAR" })
+                                history.push('/signin')
+                                showModal()
+                            }}
+
+                        >
+                            Logout
+                        </Link>
+                    </>
+                    :
+                    <Link className="link-btn">Sign in/up</Link>
+                }
+
+
+
             </div>
 
         </Nav>

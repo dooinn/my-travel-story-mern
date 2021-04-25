@@ -24,8 +24,6 @@ a{
     align-items: flex-end;
     padding: 5rem 5rem 0 0;
 
-
-
 }
 .hero-text{
     color: white;

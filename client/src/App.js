@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { UserProvider } from './context/UserState'
 import Navbar from './components/Navbar'
 import About from './screens/About'
 import Followings from './screens/Followings'
@@ -11,7 +12,7 @@ import UserProfile from './screens/UserProfile'
 
 const App = () => {
   return (
-    <>
+    <UserProvider>
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
@@ -21,10 +22,11 @@ const App = () => {
         <Route path="/myprofile" exact component={MyProfile} />
         <Route path="//profile/:userid" exact component={UserProfile} />
         <Route path="/" exact component={Followings} />
-
       </Switch>
+    </UserProvider>
 
-    </>
+
+
   )
 }
 

@@ -18,6 +18,8 @@ a{
 }
 
 
+
+
 nav{
     display: flex;
     align-items: center;
@@ -36,7 +38,101 @@ height: auto;
 .list-container li {
     margin-right: 1rem;
     list-style: none;
+    transition: .3s;
 }
+
+.list-container li:hover {
+    transform: scale(1.1);
+    
+    
+
+}
+
+.toggleButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown{
+    position: absolute;
+    z-index: 1000;
+    top:110%;
+    left: -300%;
+    width: 10rem;
+    height: 6.5rem;
+    border-radius: 15px;
+    box-shadow: -2px 3px 7px -1px rgba(0,0,0,0.5);
+-webkit-box-shadow: -2px 3px 7px -1px rgba(0,0,0,0.5);
+-moz-box-shadow: -2px 3px 7px -1px rgba(0,0,0,0.5);
+   background-color: white;
+
+}
+.user-image{
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: .3s;
+
+}
+
+.user-image:hover{
+    transform: scale(1.05);
+
+}
+
+.dropdown-list {
+    list-style: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.dropdown-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.dropdown-list li:hover{
+    transform: scale(1.05);
+
+}
+
+
+
+.dropdown-list a {
+    color: black;
+}
+
+.list-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem;
+}
+
+
+.dropdown.active {
+    display: block;
+
+
+}
+
+.dropdown.inactive {
+    display: none;
+
+}
+
 
 .link-btn{
     padding: 0.5rem 1rem;
@@ -46,9 +142,14 @@ height: auto;
     align-items: center;
     text-align: center;
     font-family: 'Alice', serif;
+    transition: .3s;
     box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
 -webkit-box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
+}
+
+.link-btn:hover{
+    transform: scale(1.05);
 }
 
 .hamburger-menu{
@@ -129,11 +230,7 @@ transform: scale(1.2);
 }
 }
 
-@media screen and (max-width: 400px){
 
-
-
-}
 
 
 `;
