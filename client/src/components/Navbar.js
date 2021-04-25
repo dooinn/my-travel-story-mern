@@ -46,9 +46,9 @@ const Navbar = () => {
             <nav className="nav-container">
                 <ul className="list-container">
                     <li><Link to="/">Home</Link></li>
-                    <li><Link>About</Link></li>
-                    <li><Link>Explore</Link></li>
-                    <li><Link>Followings</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/explore">Explore</Link></li>
+                    <li><Link to="/followings">Followings</Link></li>
                 </ul>
                 {state ?
                     <>
@@ -115,15 +115,15 @@ const Navbar = () => {
                 <ul className="newList-container">
                     {state &&
                         <img
-                            className="user-image"
+                            className="newUser-image"
                             src={state ? state.profile_pic : "loading"} alt="user avatar"
                         />
                     }
 
                     <li><Link to="/" onClick={() => showModal()}>Home</Link></li>
-                    <li><Link to="/" onClick={() => showModal()}>About</Link></li>
-                    <li><Link to="/" onClick={() => showModal()}>Explore</Link></li>
-                    <li><Link to="/" onClick={() => showModal()}>Followings</Link></li>
+                    <li><Link to="/about" onClick={() => showModal()}>About</Link></li>
+                    <li><Link to="/explore" onClick={() => showModal()}>Explore</Link></li>
+                    <li><Link to="/followings" onClick={() => showModal()}>Followings</Link></li>
                     {state &&
                         <li><Link to="/profile" onClick={() => showModal()}>Profile</Link></li>
                     }

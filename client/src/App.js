@@ -9,6 +9,7 @@ import MyProfile from './screens/MyProfile'
 import SignIn from './screens/SignIn'
 import Signup from './screens/Signup'
 import UserProfile from './screens/UserProfile'
+import Explore from './screens/Explore'
 
 const App = () => {
   return (
@@ -16,12 +17,13 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/signin" exact component={SignIn} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/about" exact component={About} />
-        <Route path="/myprofile" exact component={MyProfile} />
-        <Route path="//profile/:userid" exact component={UserProfile} />
-        <Route path="/" exact component={Followings} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/about" component={About} />
+        <Route path="/myprofile" component={MyProfile} />
+        <Route path="/explore" component={Explore} />
+        <Route path="/profile/:userid" component={UserProfile} />
+        <Route path="/followings" component={Followings} />
       </Switch>
     </UserProvider>
 

@@ -163,8 +163,8 @@ width: 100%;
 height: 100%;
 top: -100%;
 left: 0;
-z-index: 999;
-background: #5985ff;
+z-index: 9999;
+background: rgba(0,0,0,0.75);
 position: fixed;
 display: flex;
 flex-direction: column;
@@ -197,15 +197,21 @@ transform: scale(1.2);
 }
 
 .newList-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+align-items: center;
 
 }
 
 .newList-container li{
     list-style:none;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 0.5rem;
 
+
 }
+
 
 .newList-container a{
     text-decoration: none;
@@ -215,6 +221,15 @@ transform: scale(1.2);
 
 .newList-container a:hover{
     color: #1a1f34
+}
+
+.newUser-image{
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: .3s;
+
 }
 
 @media screen and (max-width: 768px){

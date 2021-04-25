@@ -45,6 +45,7 @@ display: flex;
     left:10%;
     z-index: 1;
 }
+
 .hero-text{
     color: white;
     font-size: 5rem;
