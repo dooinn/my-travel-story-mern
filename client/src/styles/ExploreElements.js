@@ -3,15 +3,16 @@ import styled from 'styled-components'
 
 export const Section = styled.section`
 width: 100vw;
-height: auto;
+height: 100vh;
 background: #f4bd2c;
 display: flex;
 flex-direction: column;
+position: relative;
 
 
 .section-header{
-width: 100vw;
-height: auto;
+width: 100%;
+height: 30vh;
 justify-content: center;
 align-items: center;
 display: flex;
@@ -32,14 +33,11 @@ align-items: center;
 transition: 0.3s;
 background: rgba(0,0,0,0.7);
 z-index: 20;
-
-
 }
 
 figure {
     width: 100%;
     height: 100%;
-  
 }
 
 
@@ -57,7 +55,7 @@ position: fixed;
 width: 70%;
 height: 70%;
 transition: left .4s;
-background: #f4bd2c;
+background: white;
 box-shadow: 0 0 15px rgba(0, 0, 0, .5);
 z-index: 9999;
 color: black;
@@ -92,6 +90,8 @@ color: black;
 
 .comment-container{
     display: flex;
+    font-size: 0.8rem;
+
 }
 
 .modal-left-column{
@@ -102,6 +102,7 @@ color: black;
     width: 100%;
     height: 100%;
     overflow: auto;
+
     padding: 2rem;
 
     
@@ -151,8 +152,9 @@ color: black;
 
 .section-body{
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background: #f4bd2c;
+    overflow: auto;
 
 }
 
@@ -185,61 +187,52 @@ article{
     flex-direction: column;
     height: 40rem;
 }
-
-
-
-
-
 }
 
-@media screen and (max-width: 400px){
-
-}
 
 `;
 
-
 export const ImageGrid = styled.div`
 width: 100%;
+height: 70vh;
 display: flex;
-overflow: auto;
-height: auto;
-
-
+align-items: center;
 
 
 .image-container{
 width: 100%;
-height:auto;
+height: 20rem;
+display: flex;
+flex-direction: column;
 position: relative;
-padding: 1rem;
-
+margin: 1rem;
+-webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
-
-
-
 
 .post__image{
-    width: 30rem;
-    height:30rem;
-    object-fit: cover;
+width: 30rem;
+height: 100%;
+object-fit: cover;
+
 
 }
-
 
 .overlay__image {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
     width: 100%;
     height: 100%;
-    padding: 2rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    z-index: 12;
+
+
+ 
 }
-
-
-
 
 .overlay__box{
     width: 100%;
@@ -248,62 +241,55 @@ padding: 1rem;
     display: flex;
     flex-direction: column;
     color:white;
-    padding: 1rem;
- 
 
-  
+
 }
 
 .overlay__userName{
+    width: 100%;
     display: flex;
     align-items: center;
-  
+
+
 }
 
 .post-title{
-    font-size: 3rem;
+
 }
 
-
-
 .author__image{
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
 
-    margin-right: 1rem;
 }
 
 .likes__box{
-    display: flex;
-    margin-bottom: 2rem;
+    font-size: 1rem;
 
-   
 }
 
-
 .read-btn{
+    float: right;
+    display: flex;
     width: 100%;
     cursor:pointer;
+
 }
 
 .read-btn:hover{
     color: #f4bd2c;
+
 }
 
 
 @media screen and (max-width: 768px){
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0;
-    margin: 0;
-
-    
+    flex-direction: column;
+    padding: 0rem;
 
 
 
-
-
+    .image-container{
+        width: 100%;
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 400px){
@@ -312,5 +298,4 @@ padding: 1rem;
 
 
 
-
-`;
+`

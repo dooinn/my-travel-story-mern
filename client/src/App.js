@@ -10,6 +10,7 @@ import SignIn from './screens/SignIn'
 import Signup from './screens/Signup'
 import UserProfile from './screens/UserProfile'
 import Explore from './screens/Explore'
+import CreatePost from './screens/CreatePost'
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
         <Route path="/explore" component={Explore} />
         <Route path="/profile/:userid" component={UserProfile} />
         <Route path="/followings" component={Followings} />
+        <Route path="/create" component={CreatePost} />
+
       </Switch>
     </UserProvider>
 

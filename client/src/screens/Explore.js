@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Section, ImageGrid } from '../styles/ExploreElements'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import exploreIcon from '../assets/exploreIcon.png'
+import { Link } from 'react-router-dom'
 
 
 const Explore = () => {
@@ -97,7 +98,10 @@ const Explore = () => {
                     </div>
                     <div className="modal-right-column">
                         <div className="post-header">
-                            <img className="author__image" src={author.profile_pic}></img>
+                            <Link to={"/profile/" + modalPost._id}>
+                                <img className="author__image" src={author.profile_pic}></img>
+                            </Link>
+
                             <p>by <b>{author.name}</b></p>
                         </div>
                         <h1 className="modalPost-title">{modalPost.title}</h1>
@@ -117,6 +121,7 @@ const Explore = () => {
 
                         } */}
                         <p className="modalPost-body">{modalPost.body}</p>
+                        <h3 style={{ marginBottom: "1rem" }}>Comments</h3>
                         {
                             comments.map(record => {
                                 return (
@@ -141,8 +146,7 @@ const Explore = () => {
             </div>
             {/********** Body Part **********/}
             <div className="section-body">
-                <ImageGrid>
-
+                {/* <ImageGrid>
                     {
                         data.map(item => {
                             return (
@@ -163,7 +167,28 @@ const Explore = () => {
                             )
                         })
                     }
-
+                </ImageGrid> */}
+                <ImageGrid>
+                    {
+                        data.map((item, index) => {
+                            return (
+                                <div key={index} className="image-container">
+                                    <img className="post__image" src={item.photo} />
+                                    <div className="overlay__image">
+                                        <div className="overlay__box">
+                                            <div className="overlay__userName">
+                                                <img className="author__image" src={item.postedBy.profile_pic}></img>
+                                                <p>by <b>{item.postedBy.name}</b></p>
+                                            </div>
+                                            <h1 className="post-title">{item.title}</h1>
+                                            <h3 className="likes__box"><AiFillHeart /> {item.likes.length}</h3>
+                                            <h2 className="read-btn" onClick={() => showModal(item)}>Read Detail</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </ImageGrid>
 
             </div>

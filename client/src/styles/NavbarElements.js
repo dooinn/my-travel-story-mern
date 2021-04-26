@@ -10,6 +10,7 @@ padding: 0rem 3rem;
 background: transparent;
 positioN: fixed;
 font-family: 'Anton', sans-serif;
+z-index: 9999;
 
 
 a{
@@ -61,7 +62,7 @@ height: auto;
     top:110%;
     left: -300%;
     width: 10rem;
-    height: 6.5rem;
+    height: auto;
     border-radius: 15px;
     box-shadow: -2px 3px 7px -1px rgba(0,0,0,0.5);
 -webkit-box-shadow: -2px 3px 7px -1px rgba(0,0,0,0.5);

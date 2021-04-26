@@ -5,6 +5,7 @@ import { Nav } from '../styles/NavbarElements'
 import logo from '../assets/logo.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineClose } from 'react-icons/ai'
+import { MdCreate } from 'react-icons/md'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
@@ -47,11 +48,14 @@ const Navbar = () => {
                 <ul className="list-container">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
-                    <li><Link to="/explore">Explore</Link></li>
-                    <li><Link to="/followings">Followings</Link></li>
+
                 </ul>
                 {state ?
                     <>
+                        <ul className="list-container">
+                            <li><Link to="/explore">Explore</Link></li>
+                            <li><Link to="/followings">Followings</Link></li>
+                        </ul>
                         <div className="toggleButton">
                             <div
                                 onClick={() => toggleMenu()}
@@ -67,7 +71,22 @@ const Navbar = () => {
                             >
                                 <ul className="dropdown-list">
                                     <li><Link
-                                        to="/profile"
+                                        to="/create"
+                                        className="list-btn"
+                                        onClick={() => toggleMenu()}
+
+                                    >
+                                        <MdCreate
+                                            style={{
+                                                marginRight: "1rem",
+                                                fontSize: "1.3rem"
+                                            }}
+                                        />
+                                        Create Post
+                                        </Link>
+                                    </li>
+                                    <li><Link
+                                        to="/myprofile"
                                         className="list-btn"
                                         onClick={() => toggleMenu()}
 
@@ -102,7 +121,11 @@ const Navbar = () => {
                     </>
 
                     :
-                    <Link to="/signin" className="link-btn">Sign in/up</Link>
+                    <>
+
+                        <Link to="/signin" className="link-btn">Sign in/up</Link>
+                    </>
+
                 }
             </nav>
             <GiHamburgerMenu
@@ -125,7 +148,7 @@ const Navbar = () => {
                     <li><Link to="/explore" onClick={() => showModal()}>Explore</Link></li>
                     <li><Link to="/followings" onClick={() => showModal()}>Followings</Link></li>
                     {state &&
-                        <li><Link to="/profile" onClick={() => showModal()}>Profile</Link></li>
+                        <li><Link to="/myprofile" onClick={() => showModal()}>Profile</Link></li>
                     }
                 </ul>
 
