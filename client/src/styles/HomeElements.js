@@ -48,6 +48,11 @@ a{
     box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
 -webkit-box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 10px 18px -6px rgba(0,0,0,0.75);
+transition:.3s;
+}
+
+.link-btn:hover{
+transform:scale(1.05)
 }
 
 

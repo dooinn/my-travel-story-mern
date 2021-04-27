@@ -222,6 +222,15 @@ color: black;
 
 }
 
+.create__btn{
+    color: gray;
+    text-decoration: none;
+}
+
+.create__btn:hover{
+    color: black;
+}
+
 @media screen and (max-width: 768px){
 flex-direction: column;
 .column-left{

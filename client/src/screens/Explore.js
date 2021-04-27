@@ -3,6 +3,7 @@ import { Section, ImageGrid } from '../styles/ExploreElements'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import exploreIcon from '../assets/exploreIcon.png'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../context/UserState'
 
 
 const Explore = () => {
@@ -14,6 +15,7 @@ const Explore = () => {
     const [author, setAuthor] = useState({})
     const [likes, setLikes] = useState([])
     const [modalOpen, setModalOpen] = useState(false);
+    const { state, dispatch } = useContext(UserContext)
 
     useEffect(() => {
         fetch('/allpost', {
@@ -30,6 +32,64 @@ const Explore = () => {
                 console.log(err)
             })
     }, [])
+
+    const likePost = (id) => {
+
+        fetch('/like', {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            },
+            body: JSON.stringify({
+                postId: id
+            })
+        }).then(res => res.json())
+            .then(result => {
+                //   console.log(result)
+                const newData = data.map(item => {
+                    if (item._id == result._id) {
+                        return result
+                    } else {
+                        return item
+                    }
+                })
+                setData(newData)
+
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+
+    const unlikePost = (id) => {
+        fetch('/unlike', {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            },
+            body: JSON.stringify({
+                postId: id
+            })
+        }).then(res => res.json())
+            .then(result => {
+                //   console.log(result)
+                const newData = data.map(item => {
+                    if (item._id == result._id) {
+                        return result
+                    } else {
+                        return item
+                    }
+                })
+                setData(newData)
+
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+
 
     const makeComment = (text, postId) => {
         fetch('/comment', {

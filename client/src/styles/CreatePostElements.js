@@ -1,19 +1,20 @@
 import styled from 'styled-components';
+import createBg from '../assets/create-bg.png'
 
 export const Section = styled.div`
 width: 100vw;
 height: 100vh;
 justify-content: center;
-background-image: url('https://source.unsplash.com/random');
+background-image: url(${createBg});
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
+font-family: 'Anton', sans-serif;
 
 
 .background-filter {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
     align-items: center;
     display: flex;
 
@@ -26,7 +27,7 @@ display: flex;
 flex-direction: column;
 background-color: white;
 height: auto;
-min-height: 40rem;
+min-height: 30rem;
 border-radius: 1.5rem;
 box-shadow:1px 2px 2px 1px black;
 align-items: center;
@@ -45,7 +46,7 @@ label {
 
 h1{
     margin-bottom: 3rem;
-    font-size: 4rem;
+    font-size: 3rem;
     
 }
 

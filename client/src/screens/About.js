@@ -7,7 +7,14 @@ import logo from '../assets/logo.png'
 const About = () => {
     return (
         <Section>
-            <div className="column-left">
+            <div
+                className="column-left"
+                data-aos='zoom-out'
+                data-aos-duration='1000'
+                data-aos-once='true'
+                data-aos-delay="100"
+                data-aos-anchor-placement='center bottom'
+            >
                 <div className="columnLeft-header">
                     <img className="icon-image" src={icon} alt="icon"></img>
                     <h1 className="hero-text">About us</h1>
@@ -24,7 +31,14 @@ const About = () => {
                 </div>
 
             </div>
-            <div className="column-right">
+            <div
+                className="column-right"
+                data-aos='zoom-out'
+                data-aos-duration='1000'
+                data-aos-once='true'
+                data-aos-delay="100"
+                data-aos-anchor-placement='center bottom'
+            >
                 <img className="logo-image" src={logo} alt="logo"></img>
             </div>
 

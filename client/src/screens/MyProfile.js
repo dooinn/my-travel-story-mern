@@ -259,8 +259,8 @@ const MyProfile = () => {
                     :
                     <div className="create__message">
                         <h1>No posts </h1>
-                        <Link to="/create" >
-                            <h1 className="create__btn">Click Here to Create</h1>
+                        <Link className="create__btn" to="/create" >
+                            <h1>Click Here to Create</h1>
                         </Link>
                     </div>
                 }
