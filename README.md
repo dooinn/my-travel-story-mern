@@ -17,7 +17,7 @@ MERN (MongoDB, Express, React, Node JS) stack.
 THis is a part of my web development portfoilo projects. 
 This is a full stack project that implements MERN(MongoDB, Express, React & Node JS) stack. This website is considerd to be launched as a real-life service for sometimes later in the future (i.e. prototype).
 
-"My Travel Story" allows users to network with other users who travelling or travelled. My Travel Story Users can share their own travel story with other users and inspire them by having uniquie indirect travel experience. 
+"My Travel Story" allows users to network with other users who travelling or travelled. My Travel Story Users can share their own travel story with other users and inspire them by having unique and indirect travel experience. 
 
 ## Technologies
 Project is created with:
